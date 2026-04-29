@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회로 및 동작 설명</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+<div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html">기초 개념</a>
+  <a href="devices.html">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html">모터</a>
+  <a href="patterns.html">회로 패턴</a>
+  <a href="sequence.html">시퀀스 제어</a>
+  <a href="ladder.html" class="active">회로/동작</a>
+  <a href="practice.html">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">Ladder Example</div>
+          <h1>복동 실린더 제어 회로와 동작 예시</h1>
+          <p>
+            아래 예시는 복동 실린더를 간단하게 제어하기 위한 래더 회로이다.
+            버튼 1을 누르면 전진하고, 전진 센서가 들어온 뒤 버튼 2를 누르면 후진한다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container ladder-layout">
+        <div class="card">
+          <h3>간단 래더 회로</h3>
+          <div class="ladder-box">
+<pre>
+입력
+X0 : 전진 버튼
+X1 : 후진 버튼
+X2 : 후진 위치 센서
+X3 : 전진 위치 센서
+
+내부 릴레이
+M0 : 전진 자기유지
+M1 : 후진 자기유지
+
+출력
+Y0 : 전진 솔레노이드
+Y1 : 후진 솔레노이드
+
+
+[전진 회로]
+
+ ──┬──[X0]──[X2]──┬──[/X3]────( M0 )
+   │              │
+   └──────[M0]────┘
+
+ ──[M0]────────────────────────( Y0 )
+
+
+[후진 회로]
+
+ ──┬──[X1]──[X3]──┬──[/X2]────( M1 )
+   │              │
+   └──────[M1]────┘
+
+ ──[M1]────────────────────────( Y1 )
+</pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>동작 순서</h3>
+          <ol class="steps">
+            <li>초기 상태에서 실린더는 후진 위치에 있고, 후진 센서 X2가 ON 상태이다.</li>
+            <li>버튼 1(X0)을 누르면 X2 조건이 만족되어 전진 회로가 동작하고 M0가 자기유지된다.</li>
+            <li>Y0 출력이 켜지면서 복동 실린더가 전진한다.</li>
+            <li>전진 중에는 전진 센서 X3가 아직 들어오지 않아 버튼 2를 눌러도 후진하지 않는다.</li>
+            <li>전진 센서 X3가 ON 된 뒤 버튼 2(X1)를 누르면 후진 회로가 동작한다.</li>
+            <li>Y1 출력이 켜지면서 실린더가 후진한다.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h3>복동 실린더 사진</h3>
+          <!-- 복동실린더 사진 넣는 자리 -->
+          <img src="사진\복동실린더.jpg" alt="복동 실린더 사진" class="media-photo">
+          <p class="media-note">복동실린더 사진</p>
+        </div>
+
+    
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 회로 및 동작 설명 페이지</div>
+  </footer>
+</body>
+</html>
