@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습 문제</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+      <div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html">기초 개념</a>
+  <a href="devices.html">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html">모터</a>
+  <a href="patterns.html">회로 패턴</a>
+  <a href="sequence.html">시퀀스 제어</a>
+  <a href="ladder.html">회로/동작</a>
+  <a href="practice.html" class="active">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">Practice</div>
+          <h1>기본 연습문제</h1>
+          <p>
+            이 페이지는 왕초보가 직접 입력, 출력, 조건을 생각해보는 훈련을 하기 위한 페이지이다.
+            바로 정답을 외우는 것보다, 먼저 어떤 회로가 필요한지 스스로 생각하는 것이 중요하다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h3>문제 1</h3>
+          <p>버튼 1을 누르면 램프가 켜지고, 버튼 2를 누르면 램프가 꺼지는 회로를 생각해보자.</p>
+          <ul class="list">
+            <li>입력은 무엇인가?</li>
+            <li>출력은 무엇인가?</li>
+            <li>자기유지가 필요한가?</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>문제 2</h3>
+          <p>센서가 물체를 감지하면 모터가 3초 뒤에 켜지는 회로를 생각해보자.</p>
+          <ul class="list">
+            <li>입력은 무엇인가?</li>
+            <li>출력은 무엇인가?</li>
+            <li>타이머가 필요한가?</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>문제 3</h3>
+          <p>전진 버튼을 누르면 실린더가 전진하고, 전진 센서에 닿으면 멈추는 회로를 생각해보자.</p>
+          <ul class="list">
+            <li>초기 상태는 어디인가?</li>
+            <li>종료 조건은 무엇인가?</li>
+            <li>자기유지가 필요한가?</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>문제 4</h3>
+          <p>전진 중에는 후진이 안 되고, 후진 중에는 전진이 안 되도록 만들려면 어떤 개념이 필요한가?</p>
+          <ul class="list">
+            <li>반대 동작을 막는 회로 이름은?</li>
+            <li>a접점과 b접점 중 어떤 것이 자주 쓰이는가?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">풀이 힌트</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>문제 1 힌트</h3>
+            <p>스타트/스톱 회로와 자기유지를 같이 생각하면 된다.</p>
+          </div>
+
+          <div class="card">
+            <h3>문제 2 힌트</h3>
+            <p>센서 입력 + 타이머 + 모터 출력의 구조로 나눠서 생각하면 된다.</p>
+          </div>
+
+          <div class="card">
+            <h3>문제 3 힌트</h3>
+            <p>시작 조건은 버튼, 해제 조건은 전진 센서로 생각하면 쉽다.</p>
+          </div>
+
+          <div class="card">
+            <h3>문제 4 힌트</h3>
+            <p>인터록 회로 개념이 필요하다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 연습 페이지</div>
+  </footer>
+</body>
+</html>

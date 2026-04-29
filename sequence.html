@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시퀀스 제어</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+      <div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html">기초 개념</a>
+  <a href="devices.html">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html">모터</a>
+  <a href="patterns.html">회로 패턴</a>
+  <a href="sequence.html" class="active">시퀀스 제어</a>
+  <a href="ladder.html">회로/동작</a>
+  <a href="practice.html">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">Sequence</div>
+          <h1>시퀀스 제어를 생각하는 방법</h1>
+          <p>
+            생산자동화기능사 실기에서는 회로를 그냥 외우기보다,
+            동작 순서를 먼저 정리하고 그 순서를 회로로 옮기는 사고가 중요하다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">문제 풀 때 먼저 정리할 것</h2>
+        <div class="grid-4">
+          <div class="card">
+            <h3>1. 초기 상태</h3>
+            <p>처음에 실린더나 모터가 어디에 있는지, 어떤 센서가 ON인지 확인한다.</p>
+          </div>
+          <div class="card">
+            <h3>2. 시작 조건</h3>
+            <p>어떤 버튼이나 센서가 동작의 출발점이 되는지 정리한다.</p>
+          </div>
+          <div class="card">
+            <h3>3. 종료 조건</h3>
+            <p>어디까지 가면 멈추는지, 어떤 센서에서 동작이 끝나는지 본다.</p>
+          </div>
+          <div class="card">
+            <h3>4. 금지 조건</h3>
+            <p>동시에 일어나면 안 되는 동작이 있는지 확인하고 인터록을 생각한다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">시퀀스 흐름 예시</h2>
+        <p class="section-desc">복동 실린더의 전진/후진 문제를 예로 들면 이렇게 생각할 수 있다.</p>
+
+        <div class="card">
+          <div class="flow">
+            <div class="flow-box">초기 상태<br>후진 위치</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">전진 버튼 입력</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">실린더 전진</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">전진 센서 도달</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:22px;">
+          <div class="flow">
+            <div class="flow-box">후진 버튼 입력</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">실린더 후진</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">후진 센서 도달</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">초기 상태 복귀</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h3>회로로 바꿀 때 핵심</h3>
+          <ul class="list">
+            <li>시작 조건은 a접점으로 잡는다.</li>
+            <li>멈춰야 하는 조건은 b접점으로 많이 잡는다.</li>
+            <li>동작 중 유지가 필요하면 자기유지를 넣는다.</li>
+            <li>반대 동작은 인터록으로 막는다.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>초보자가 자주 하는 실수</h3>
+          <ul class="list">
+            <li>입력과 출력을 섞어서 생각함</li>
+            <li>초기 상태를 안 보고 회로를 바로 짬</li>
+            <li>종료 센서를 안 넣음</li>
+            <li>전진/후진을 동시에 허용하는 회로를 짬</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 시퀀스 제어 페이지</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기본 회로 패턴</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+      <div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html">기초 개념</a>
+  <a href="devices.html">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html">모터</a>
+  <a href="patterns.html" class="active">회로 패턴</a>
+  <a href="sequence.html">시퀀스 제어</a>
+  <a href="ladder.html">회로/동작</a>
+  <a href="practice.html">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">Pattern</div>
+          <h1>기본 회로 패턴</h1>
+          <p>
+            실기 문제를 풀기 위해서는 회로를 매번 새로 외우는 것이 아니라,
+            자주 나오는 패턴을 먼저 익히는 것이 중요하다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h3>스타트 / 스톱 회로</h3>
+          <div class="ladder-box">
+<pre>
+ ──[/X1]──┬──[X0]────────────( Y0 )
+          │
+          └──[Y0]────────────
+</pre>
+          </div>
+          <p>버튼 X0를 누르면 Y0가 켜지고, X1을 누르면 꺼진다.</p>
+        </div>
+
+        <div class="card">
+          <h3>자기유지 회로</h3>
+          <div class="ladder-box">
+<pre>
+ ──┬──[X0]────────────( M0 )
+   │
+   └──[M0]────────────
+</pre>
+          </div>
+          <p>한 번 켜진 상태를 계속 유지하기 위해 내부 릴레이를 사용하는 기본 패턴이다.</p>
+        </div>
+
+        <div class="card">
+          <h3>인터록 회로</h3>
+          <div class="ladder-box">
+<pre>
+ ──[/M1]──[X0]────────( M0 )
+ ──[/M0]──[X1]────────( M1 )
+</pre>
+          </div>
+          <p>두 동작이 동시에 켜지면 안 될 때 서로를 막는 회로이다.</p>
+        </div>
+
+        <div class="card">
+          <h3>타이머 회로</h3>
+          <div class="ladder-box">
+<pre>
+ ──[X0]───────────────( T0 )
+ ──[T0]───────────────( Y0 )
+</pre>
+          </div>
+          <p>입력이 들어온 뒤 일정 시간이 지나면 출력이 켜지는 회로이다.</p>
+        </div>
+
+        <div class="card">
+          <h3>카운터 회로</h3>
+          <div class="ladder-box">
+<pre>
+ ──[X0]───────────────( C0 )
+ ──[C0]───────────────( Y0 )
+</pre>
+          </div>
+          <p>입력이 몇 번 들어왔는지 세고, 설정 횟수에 도달하면 출력이 켜지는 회로이다.</p>
+        </div>
+
+        <div class="card">
+          <h3>실린더 전진/후진 기본 회로</h3>
+          <div class="ladder-box">
+<pre>
+ ──┬──[X0]──[X2]──┬──[/X3]────( M0 )
+   │              │
+   └──────[M0]────┘
+
+ ──┬──[X1]──[X3]──┬──[/X2]────( M1 )
+   │              │
+   └──────[M1]────┘
+</pre>
+          </div>
+          <p>전진과 후진을 조건에 따라 순서대로 제어하는 기본 패턴이다.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 기본 회로 패턴 페이지</div>
+  </footer>
+</body>
+</html>

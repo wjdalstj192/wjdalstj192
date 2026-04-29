@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLC 기초 개념</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+      <div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html" class="active">기초 개념</a>
+  <a href="devices.html">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html">모터</a>
+  <a href="patterns.html">회로 패턴</a>
+  <a href="sequence.html">시퀀스 제어</a>
+  <a href="ladder.html">회로/동작</a>
+  <a href="practice.html">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">PLC Basic</div>
+          <h1>PLC를 처음 볼 때 알아야 하는 기초 개념</h1>
+          <p>
+            PLC를 처음 배우는 사람은 먼저 주소 체계와 기호를 읽을 수 있어야 한다.
+            이 페이지에서는 X, Y, M, T 같은 기본 주소와 a접점, b접점, 코일, 자기유지, 인터록의 개념을 쉽게 정리하였다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">PLC 주소 보는 법</h2>
+        <p class="section-desc">
+          제조사마다 약간 차이는 있지만, 입문할 때는 아래처럼 이해하면 된다.
+        </p>
+
+        <div class="info-grid">
+          <div class="symbol-card">
+            <div class="symbol-mark">X</div>
+            <h3>입력</h3>
+            <p>버튼, 스위치, 센서처럼 PLC로 들어오는 신호를 의미한다.</p>
+            <p><span class="code-chip">예: X0, X1, X2</span></p>
+          </div>
+
+          <div class="symbol-card">
+            <div class="symbol-mark">Y</div>
+            <h3>출력</h3>
+            <p>램프, 부저, 밸브, 모터처럼 PLC가 내보내는 제어 신호를 의미한다.</p>
+            <p><span class="code-chip">예: Y0, Y1</span></p>
+          </div>
+
+          <div class="symbol-card">
+            <div class="symbol-mark">M</div>
+            <h3>내부 릴레이</h3>
+            <p>PLC 내부에서만 사용하는 보조 기억 공간이다. 자기유지나 조건 기억에 많이 사용된다.</p>
+            <p><span class="code-chip">예: M0, M1</span></p>
+          </div>
+
+          <div class="symbol-card">
+            <div class="symbol-mark">T</div>
+            <h3>타이머</h3>
+            <p>일정 시간이 지난 뒤 동작하게 하거나 지연 동작을 만들 때 사용한다.</p>
+            <p><span class="code-chip">예: T0, T1</span></p>
+          </div>
+
+          <div class="symbol-card">
+            <div class="symbol-mark">C</div>
+            <h3>카운터</h3>
+            <p>입력된 횟수를 세는 기능이다. 제품 개수 세기 같은 작업에 사용된다.</p>
+            <p><span class="code-chip">예: C0, C1</span></p>
+          </div>
+
+          <div class="symbol-card">
+            <div class="symbol-mark">D</div>
+            <h3>데이터 레지스터</h3>
+            <p>숫자 데이터나 설정값을 저장하는 공간이다. 입문 단계에서는 이름만 알아도 충분하다.</p>
+            <p><span class="code-chip">예: D0, D10</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">래더 회로 기호 읽는 법</h2>
+        <p class="section-desc">
+          회로를 직접 짜려면 기호를 읽을 수 있어야 한다. 아래 기호는 가장 많이 쓰는 기본 기호들이다.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-tag">NO Contact</div>
+            <h3>a접점</h3>
+            <div class="example-box">
+              <strong>[ X0 ]</strong>
+            </div>
+            <p>
+              평소에는 열려 있고, 입력이 들어오면 닫히는 접점이다.
+              버튼 ON, 센서 ON 같은 조건을 만들 때 많이 사용한다.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">NC Contact</div>
+            <h3>b접점</h3>
+            <div class="example-box">
+              <strong>[ /X0 ]</strong>
+            </div>
+            <p>
+              평소에는 닫혀 있고, 입력이 들어오면 열리는 접점이다.
+              정지 조건, 반대 동작 금지 조건을 만들 때 자주 사용한다.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Coil</div>
+            <h3>코일</h3>
+            <div class="example-box">
+              <strong>( Y0 )</strong>
+            </div>
+            <p>
+              회로의 결과로 켜지는 출력이다. 램프, 밸브, 모터 출력에 연결된다.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Memory</div>
+            <h3>내부 릴레이 코일</h3>
+            <div class="example-box">
+              <strong>( M0 )</strong>
+            </div>
+            <p>
+              실제 출력이 아니라 PLC 내부에서 상태를 기억하기 위해 사용한다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">기본 회로 개념</h2>
+        <p class="section-desc">
+          회로를 직접 짜려면 아래 세 가지 개념을 먼저 이해하는 것이 중요하다.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">Self Holding</div>
+            <h3>자기유지</h3>
+            <p>
+              버튼을 한 번 눌렀을 때 손을 떼어도 동작이 계속 유지되도록 만드는 회로이다.
+              스타트 버튼 이후 계속 돌아가야 하는 장치에 많이 사용된다.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Interlock</div>
+            <h3>인터록</h3>
+            <p>
+              두 개의 동작이 동시에 일어나면 안 될 때 서로를 막는 회로이다.
+              예를 들어 전진 중에는 후진 금지, 후진 중에는 전진 금지 같은 경우에 사용한다.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Timer</div>
+            <h3>타이머</h3>
+            <p>
+              일정 시간이 지난 뒤에 동작하게 하거나, 잠시 지연 후 동작하게 만드는 회로이다.
+              PLC다운 제어를 만들 때 자주 등장한다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">회로 짜는 순서</h2>
+        <p class="section-desc">
+          회로를 처음 짤 때는 아래 순서로 생각하면 훨씬 쉽다.
+        </p>
+
+        <div class="grid-4">
+          <div class="card">
+            <h3>1. 입력 정하기</h3>
+            <p>버튼, 센서, 스위치 중 어떤 신호가 들어오는지 먼저 정한다.</p>
+          </div>
+
+          <div class="card">
+            <h3>2. 출력 정하기</h3>
+            <p>램프, 밸브, 모터 중 어떤 장치를 움직일지 정한다.</p>
+          </div>
+
+          <div class="card">
+            <h3>3. 조건 정하기</h3>
+            <p>언제 켜지고 언제 꺼질지 논리 조건을 정한다.</p>
+          </div>
+
+          <div class="card">
+            <h3>4. 유지/해제 정하기</h3>
+            <p>자기유지, 인터록, 센서 종료 조건이 필요한지 확인한다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 기초 개념 페이지</div>
+  </footer>
+</body>
+</html>

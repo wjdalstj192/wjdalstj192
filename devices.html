@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입력/출력 기기</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+     <div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html">기초 개념</a>
+  <a href="devices.html" class="active">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html">모터</a>
+  <a href="patterns.html">회로 패턴</a>
+  <a href="sequence.html">시퀀스 제어</a>
+  <a href="ladder.html">회로/동작</a>
+  <a href="practice.html">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">Devices</div>
+          <h1>입력 기기와 출력 기기</h1>
+          <p>
+            생산자동화기능사 실기에서는 입력 기기와 출력 기기를 먼저 구분할 수 있어야 한다.
+            입력은 PLC로 들어오는 신호이고, 출력은 PLC가 밖으로 내보내는 제어 신호이다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <div class="card-tag">Input</div>
+          <h3>입력 기기</h3>
+          <p>입력 기기는 버튼, 스위치, 센서처럼 PLC에 신호를 넣어주는 장치이다.</p>
+          <ul class="list">
+            <li>푸시버튼</li>
+            <li>리미트 스위치</li>
+            <li>포토 센서</li>
+            <li>유도 센서</li>
+            <li>용량 센서</li>
+            <li>초음파 센서</li>
+          </ul>
+          <p>
+            회로에서는 보통 <strong>X</strong> 주소를 사용해서 표현한다.
+            예: X0, X1, X2
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Output</div>
+          <h3>출력 기기</h3>
+          <p>출력 기기는 PLC가 제어하는 장치로, 실제 동작을 수행한다.</p>
+          <ul class="list">
+            <li>램프</li>
+            <li>부저</li>
+            <li>솔레노이드 밸브</li>
+            <li>DC모터</li>
+            <li>스테핑 모터</li>
+            <li>서보 모터</li>
+          </ul>
+          <p>
+            회로에서는 보통 <strong>Y</strong> 주소를 사용해서 표현한다.
+            예: Y0, Y1
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">공압 장치도 같이 알아야 한다</h2>
+        <p class="section-desc">
+          생산자동화기능사 실기에서는 PLC만 아는 것으로 끝나지 않고, 공압 장치와 센서가 어떻게 연결되는지도 알아야 한다.
+        </p>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="card-tag">Pneumatic</div>
+            <h3>복동 실린더</h3>
+            <p>전진과 후진을 모두 제어할 수 있는 실린더이다.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Valve</div>
+            <h3>솔레노이드 밸브</h3>
+            <p>PLC 출력 신호를 받아 공기의 흐름 방향을 바꾼다.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Sensor</div>
+            <h3>전진/후진 센서</h3>
+            <p>실린더가 끝까지 전진했는지, 후진했는지 확인하는 센서이다.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">Air</div>
+            <h3>에어 유니트</h3>
+            <p>공압 시스템에 필요한 압축 공기를 안정적으로 공급한다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">입출력 정리 표</h2>
+        <div class="compare-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>대표 장치</th>
+                <th>역할</th>
+                <th>주소 예시</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>입력</td>
+                <td>버튼, 센서, 스위치</td>
+                <td>PLC에 조건을 전달</td>
+                <td>X0, X1, X2</td>
+              </tr>
+              <tr>
+                <td>출력</td>
+                <td>램프, 밸브, 모터</td>
+                <td>실제 동작 수행</td>
+                <td>Y0, Y1</td>
+              </tr>
+              <tr>
+                <td>내부 기억</td>
+                <td>내부 릴레이</td>
+                <td>상태 기억 및 조건 보조</td>
+                <td>M0, M1</td>
+              </tr>
+              <tr>
+                <td>시간 제어</td>
+                <td>타이머</td>
+                <td>지연 동작</td>
+                <td>T0, T1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 입출력 기기 페이지</div>
+  </footer>
+</body>
+</html>
