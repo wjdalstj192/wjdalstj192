@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모터 설명</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">PLC <span>Guide</span></div>
+ <div class="nav-links">
+  <a href="index.html">메인</a>
+  <a href="plc.html">PLC 설명</a>
+  <a href="basic.html">기초 개념</a>
+  <a href="devices.html">입출력 기기</a>
+  <a href="sensors.html">센서</a>
+  <a href="motors.html" class="active">모터</a>
+  <a href="patterns.html">회로 패턴</a>
+  <a href="sequence.html">시퀀스 제어</a>
+  <a href="ladder.html">회로/동작</a>
+  <a href="practice.html">연습</a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-box">
+          <div class="badge">Motor Control</div>
+          <h1>모터의 종류와 PLC를 이용한 구동 방법</h1>
+          <p>
+            모터는 회전 운동이 필요한 자동화 장치에서 많이 사용된다.
+            여기서는 DC모터, 스테핑 모터, 서보 모터의 동작 원리와 PLC를 이용한 구동 방법을 설명한다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-3">
+        <div class="card">
+          <div class="card-tag">DC Motor</div>
+          <h3>DC모터</h3>
+          <!-- DC모터 사진 넣는 자리 -->
+          <img src="사진\24DC모터.jpg" alt="DC모터 사진" class="media-photo">
+          <p>DC모터는 직류 전원을 이용해 회전하는 가장 기본적인 모터이다.</p>
+      
+          <ul class="list">
+            <li>동작 원리: 전류가 흐르면 자계가 생기고 회전자가 회전한다.</li>
+            <li>PLC 구동법: PLC 출력으로 릴레이나 드라이버를 제어한다.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Stepping Motor</div>
+          <h3>스테핑 모터</h3>
+          <!-- 스테핑모터 사진 넣는 자리 -->
+          <img src="사진\스테핑 모터.jpg" alt="스테핑 모터 사진" class="media-photo">
+          <p>스테핑 모터는 정해진 각도만큼 한 단계씩 움직이는 모터이다.</p>
+        
+          <ul class="list">
+            <li>동작 원리: 펄스 신호가 들어올 때마다 일정 각도씩 회전한다.</li>
+            <li>PLC 구동법: PLC의 펄스 출력과 방향 신호를 드라이버에 보낸다.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Servo Motor</div>
+          <h3>서보 모터</h3>
+          <!-- 서보모터 사진 넣는 자리 -->
+          <img src="사진\서보모터.jpg" alt="서보 모터 사진" class="media-photo">
+          <p>서보 모터는 위치, 속도, 각도를 정밀하게 제어할 수 있는 모터이다.</p>
+          
+          <ul class="list">
+            <li>동작 원리: 피드백을 이용해 목표 위치와 현재 위치를 비교 제어한다.</li>
+            <li>PLC 구동법: PLC에서 서보 드라이버로 명령을 보내어 제어한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">모터 비교</h2>
+        <div class="compare-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>DC모터</th>
+                <th>스테핑 모터</th>
+                <th>서보 모터</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>제어 방식</td>
+                <td>단순 회전 제어</td>
+                <td>펄스 단위 회전</td>
+                <td>피드백 기반 정밀 제어</td>
+              </tr>
+              <tr>
+                <td>장점</td>
+                <td>구조 단순</td>
+                <td>위치 제어 쉬움</td>
+                <td>정밀도 높음</td>
+              </tr>
+              <tr>
+                <td>PLC 구동</td>
+                <td>릴레이/드라이버 제어</td>
+                <td>펄스 출력 + 드라이버</td>
+                <td>서보 드라이버 제어</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">PLC 소개 홈페이지 · 모터 설명 페이지</div>
+  </footer>
+</body>
+</html>
